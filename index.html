@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070817">
+  <meta name="description" content="Nyxar — a dark space for gamers. Join our Discord community.">
+  <title>Nyxar — A Dark Space for Gamers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#050611;--panel:rgba(12,17,39,.78);--cyan:#5de7ff;--blue:#477cff;--violet:#9864ff;--pink:#ff5bda;--text:#eef5ff;--muted:#a6b3d3;--line:rgba(121,169,255,.22)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:'Kanit',sans-serif;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(ellipse at 50% 15%,#101d48 0,transparent 45%),radial-gradient(ellipse at 15% 60%,#170d39 0,transparent 38%),radial-gradient(ellipse at 85% 70%,#081d3c 0,transparent 35%),#050611}
+    #stars{position:fixed;inset:0;width:100%;height:100%;z-index:-2;pointer-events:none;opacity:.8}
+    .aurora{position:fixed;width:50vw;height:50vw;max-width:600px;max-height:600px;border-radius:50%;filter:blur(100px);opacity:.09;pointer-events:none;z-index:-1;animation:float 12s ease-in-out infinite alternate}
+    .aurora.a{background:var(--blue);top:-20%;left:-10%}.aurora.b{background:var(--pink);bottom:-25%;right:-12%;animation-delay:-5s}
+    @keyframes float{to{transform:translate(9vw,7vh) scale(1.2)}}
+    .wrap{width:min(1120px,92vw);margin:auto}
+    header{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:0;z-index:20;background:rgba(5,6,17,.76);backdrop-filter:blur(18px);transition:box-shadow .3s,border-color .3s}header.scrolled{box-shadow:0 8px 34px rgba(35,92,255,.13);border-color:rgba(106,151,255,.2)}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:white;font-family:Orbitron,sans-serif;font-weight:800;letter-spacing:.12em}
+    .brand img{width:46px;height:46px;object-fit:cover;border-radius:13px;filter:drop-shadow(0 0 12px #447dff)}
+    nav{display:flex;align-items:center;gap:26px}nav a{color:#b9c6e5;text-decoration:none;font-size:14px;transition:.2s}nav a:hover{color:var(--cyan)}
+    .nav-join,.button{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid rgba(123,186,255,.55);border-radius:12px;color:white;text-decoration:none;font-weight:600;background:linear-gradient(110deg,rgba(50,113,255,.24),rgba(175,71,255,.2));box-shadow:0 0 24px rgba(75,105,255,.12);transition:transform .2s,box-shadow .2s}
+    .nav-join{padding:10px 16px;font-size:13px}.button{padding:15px 22px;font-size:15px;cursor:pointer}.nav-join:hover,.button:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(87,134,255,.3)}
+    .hero{min-height:calc(100vh - 82px);display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:20px;padding:52px 0 70px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:#a6eaff;text-transform:uppercase;letter-spacing:.18em;font-size:11px;font-family:Orbitron,sans-serif;border:1px solid rgba(93,231,255,.24);background:rgba(18,72,112,.16);border-radius:999px;padding:9px 13px}
+    .pulse{width:7px;height:7px;background:#64f5ff;border-radius:50%;box-shadow:0 0 12px #64f5ff;animation:blink 1.8s infinite}@keyframes blink{50%{opacity:.25;transform:scale(.7)}}
+    h1{font-family:Orbitron,sans-serif;font-size:clamp(42px,7vw,82px);line-height:1.03;letter-spacing:-.06em;margin:22px 0 18px;font-weight:800}
+    h1 .gradient{background:linear-gradient(100deg,#fff 0%,#83efff 28%,#8c8bff 58%,#ff70dc 100%);color:transparent;background-clip:text;-webkit-background-clip:text;filter:drop-shadow(0 0 22px rgba(100,130,255,.2))}
+    .lead{font-size:clamp(16px,2vw,19px);line-height:1.85;color:#b8c4e2;max-width:550px;margin:0 0 28px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}.button.primary{background:linear-gradient(110deg,#2678ff,#8d51ff 65%,#d54bcf);border:0;box-shadow:0 8px 30px rgba(91,91,255,.28)}.button.secondary{background:rgba(255,255,255,.035)}
+    .micro{font-size:12px;color:#7f90b7;margin-top:18px}
+    .visual{position:relative;min-height:500px;display:grid;place-items:center;isolation:isolate}
+    .visual:before,.visual:after{content:"";position:absolute;border:1px solid rgba(94,186,255,.35);border-radius:50%;width:min(34vw,390px);height:min(34vw,390px);transform:rotateX(66deg) rotate(-12deg);box-shadow:0 0 30px rgba(42,125,255,.08),inset 0 0 28px rgba(100,75,255,.08);animation:orbit 15s linear infinite;z-index:-1}
+    .visual:after{width:min(27vw,310px);height:min(27vw,310px);border-color:rgba(255,91,218,.4);transform:rotateX(66deg) rotate(35deg);animation-duration:11s;animation-direction:reverse}
+    @keyframes orbit{to{transform:rotateX(66deg) rotate(348deg)}}
+    .hero-logo{width:min(100%,490px);aspect-ratio:1;object-fit:contain;filter:drop-shadow(0 0 28px rgba(62,118,255,.42));animation:levitate 5s ease-in-out infinite}
+    @keyframes levitate{50%{transform:translateY(-12px) scale(1.015);filter:drop-shadow(0 0 42px rgba(128,85,255,.56))}}
+    .shard{position:absolute;width:8px;height:23px;background:linear-gradient(180deg,#fff,#54eaff 38%,#6e56ff 70%,transparent);clip-path:polygon(50% 0,100% 38%,50% 100%,0 38%);filter:drop-shadow(0 0 8px #54eaff);animation:shardFloat 6s ease-in-out infinite}
+    .s1{top:13%;left:15%;transform:rotate(30deg)}.s2{top:20%;right:9%;height:48px;animation-delay:-2s}.s3{bottom:18%;left:12%;height:26px;animation-delay:-3s}.s4{bottom:14%;right:16%;height:38px;animation-delay:-1s}
+    @keyframes shardFloat{0%,100%{translate:0 0;rotate:0deg;opacity:.45}50%{translate:8px -20px;rotate:30deg;opacity:1}}
+    section{padding:82px 0;position:relative;scroll-margin-top:88px}section:not(.hero):before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(78%,720px);height:1px;background:linear-gradient(90deg,transparent,rgba(81,151,255,.24),rgba(188,91,255,.2),transparent)}.section-title{text-align:center;font-family:Orbitron,sans-serif;font-size:clamp(25px,4vw,40px);margin:0 0 12px}.section-sub{text-align:center;color:var(--muted);margin:0 auto 34px;max-width:600px;line-height:1.8}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{border:1px solid var(--line);border-radius:18px;padding:23px;background:linear-gradient(145deg,rgba(18,25,55,.76),rgba(8,10,25,.78));box-shadow:inset 0 1px rgba(255,255,255,.04);backdrop-filter:blur(14px)}
+    .card-icon{font-size:25px;margin-bottom:14px;filter:drop-shadow(0 0 10px rgba(93,231,255,.35))}.card h3{margin:0 0 7px;font-size:18px}.card p{margin:0;color:var(--muted);font-size:14px;line-height:1.8}
+    .rules{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.rule{display:flex;gap:13px;padding:18px;border:1px solid rgba(121,169,255,.16);border-radius:14px;background:rgba(12,17,39,.55)}.num{font-family:Orbitron,sans-serif;color:var(--cyan);font-size:13px;padding-top:3px}.rule strong{display:block;margin-bottom:4px}.rule span{color:var(--muted);font-size:13px;line-height:1.7}
+    .join-panel{text-align:center;border:1px solid rgba(123,151,255,.27);border-radius:24px;padding:45px 20px;background:radial-gradient(ellipse at 50% 0,rgba(85,100,255,.18),transparent 60%),rgba(10,13,32,.8);position:relative;overflow:hidden}.join-panel:before{content:"";position:absolute;width:250px;height:250px;border:1px solid rgba(93,231,255,.18);border-radius:50%;left:calc(50% - 125px);top:-200px;box-shadow:0 0 0 35px rgba(93,231,255,.025),0 0 0 70px rgba(93,231,255,.02)}
+    .join-panel h2{font-family:Orbitron,sans-serif;font-size:clamp(25px,4vw,40px);margin:0 0 12px}.join-panel p{color:var(--muted);margin:0 0 25px}
+    footer{padding:26px 0 36px;color:#7382a7;font-size:12px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .reveal{opacity:0;transform:translateY(28px) scale(.985);filter:blur(5px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1),filter .75s ease}.reveal.show{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}.card,.rule,.join-panel{transition:border-color .3s,box-shadow .3s,transform .3s}.card:hover,.rule:hover{border-color:rgba(93,231,255,.4);box-shadow:0 10px 35px rgba(57,106,255,.1);transform:translateY(-3px)}.scroll-progress{position:fixed;top:0;left:0;width:100%;height:2px;z-index:50;pointer-events:none;background:rgba(255,255,255,.025)}.scroll-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#42dfff,#657cff,#e05bff);box-shadow:0 0 12px #7a73ff} .section-title{ text-shadow:0 0 24px rgba(90,123,255,.12)}
+    @media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:45px;text-align:center}.lead{margin-left:auto;margin-right:auto}.actions{justify-content:center}.visual{min-height:390px;grid-row:1}.hero-logo{width:min(82vw,390px)}.visual:before{width:min(75vw,360px);height:min(75vw,360px)}.visual:after{width:min(60vw,290px);height:min(60vw,290px)}nav a:not(.nav-join){display:none}.cards{grid-template-columns:1fr}.rules{grid-template-columns:1fr}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none;filter:none}}
+  </style>
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"><span id="progressBar"></span></div><canvas id="stars" aria-hidden="true"></canvas><div class="aurora a"></div><div class="aurora b"></div>
+  <header class="wrap">
+    <a class="brand" href="#home" aria-label="Nyxar home"><img src="assets/nyxar-crystal-logo.png" alt=""><span>NYXAR</span></a>
+    <nav aria-label="Main navigation"><a href="#about">เกี่ยวกับ</a><a href="#rules">กฎเซิร์ฟเวอร์</a><a class="nav-join" href="https://discord.gg/umCMvM7AFS" target="_blank" rel="noopener noreferrer">JOIN DISCORD ↗</a></nav>
+  </header>
+  <main>
+    <section class="hero wrap" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> A DARK SPACE FOR GAMERS</div>
+        <h1>ENTER THE<br><span class="gradient">NYXAR</span><br>UNIVERSE</h1>
+        <p class="lead">พื้นที่สำหรับเกมเมอร์ที่อยากเล่นเกม พูดคุย และเจอผู้คนใหม่ ๆ ในบรรยากาศที่เป็นกันเอง</p>
+        <div class="actions"><a class="button primary" href="https://discord.gg/umCMvM7AFS" target="_blank" rel="noopener noreferrer">✦ เข้าร่วมเซิร์ฟเวอร์</a><a class="button secondary" href="#rules">อ่านกฎเซิร์ฟเวอร์ ↓</a></div>
+        <p class="micro">BLACK THEME · SOFT GLOW · GOOD VIBES ONLY</p>
+      </div>
+      <div class="visual" aria-label="Nyxar crystal emblem">
+        <span class="shard s2"></span><span class="shard s4"></span>
+        <img class="hero-logo" src="assets/nyxar-crystal-logo.png" alt="โลโก้ N สีฟ้า ม่วง และชมพู">
+      </div>
+    </section>
+    <section id="about">
+      <div class="wrap">
+        <h2 class="section-title reveal">A COMMUNITY BUILT TOGETHER</h2>
+        <p class="section-sub reveal">พื้นที่ของผู้คนที่ชอบเกม ความคิดสร้างสรรค์ และบรรยากาศดี ๆ — เข้ามาทำความรู้จักกันได้เลย</p>
+        <div class="cards">
+          <article class="card reveal"><div class="card-icon">✧</div><h3>Community</h3><p>พูดคุย แลกเปลี่ยนความสนใจ และหาเพื่อนใหม่ในบรรยากาศเป็นกันเอง</p></article>
+          <article class="card reveal"><div class="card-icon">⌁</div><h3>Soft Neon</h3><p>ดีไซน์และตัวตนของ Nyxar ในโทนคริสตอลเรืองแสง ฟ้า ม่วง และชมพู</p></article>
+          <article class="card reveal"><div class="card-icon">✦</div><h3>Make Your Mark</h3><p>เข้าร่วมกิจกรรม แบ่งปันไอเดีย และช่วยกันสร้างคอมมูนิตี้ให้น่าอยู่</p></article>
+        </div>
+      </div>
+    </section>
+    <section id="rules">
+      <div class="wrap">
+        <h2 class="section-title reveal">COMMUNITY GUIDELINES</h2>
+        <p class="section-sub reveal">กฎพื้นฐานเพื่อให้ Nyxar เป็นพื้นที่ที่ทุกคนสนุกและปลอดภัย</p>
+        <div class="rules">
+          <div class="rule reveal"><div class="num">01</div><div><strong>เคารพกันและกัน</strong><span>ไม่คุกคาม เหยียดหยาม หรือจงใจก่อกวนสมาชิกคนอื่น</span></div></div>
+          <div class="rule reveal"><div class="num">02</div><div><strong>งดสแปม</strong><span>ไม่ส่งข้อความซ้ำ ๆ ไม่ปั่นแชต และไม่แท็กคนอื่นเกินจำเป็น</span></div></div>
+          <div class="rule reveal"><div class="num">03</div><div><strong>แชร์ให้ถูกห้อง</strong><span>เลือกห้องให้ตรงหัวข้อ และทำตามคำแนะนำของทีมดูแล</span></div></div>
+          <div class="rule reveal"><div class="num">04</div><div><strong>ห้ามเนื้อหาอันตราย</strong><span>ไม่โพสต์ลิงก์หลอกลวง มัลแวร์ หรือเนื้อหาที่ละเมิดความปลอดภัย</span></div></div>
+          <div class="rule reveal"><div class="num">05</div><div><strong>เคารพความเป็นส่วนตัว</strong><span>ห้ามเผยแพร่ข้อมูลส่วนตัวหรือข้อความส่วนตัวของผู้อื่นโดยไม่ได้รับอนุญาต</span></div></div>
+          <div class="rule reveal"><div class="num">06</div><div><strong>ทำตามทีมงาน</strong><span>หากมีปัญหาให้ติดต่อผู้ดูแล และหลีกเลี่ยงการสร้างดราม่าในที่สาธารณะ</span></div></div>
+        </div>
+      </div>
+    </section>
+    <section class="wrap">
+      <div class="join-panel reveal">
+        <h2>READY TO JOIN <span style="color:#8beaff">NYXAR?</span></h2>
+        <p>เข้ามาทำความรู้จักและสนุกไปด้วยกัน</p>
+        <a class="button primary" href="https://discord.gg/umCMvM7AFS" target="_blank" rel="noopener noreferrer">✦ JOIN THE DISCORD ↗</a>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap"><span>© <span id="year"></span> NYXAR · A DARK SPACE FOR GAMERS</span><span>Crafted in neon · Powered by community</span></footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const reveals = document.querySelectorAll('.reveal');
+    // Gentle scroll depth: reveal content, header glow, and reading progress.
+    const header = document.querySelector("header");
+    const progressBar = document.getElementById("progressBar");
+    let scrollTick = false;
+    function updateScrollEffects(){
+      const maxScroll = document.documentElement.scrollHeight - innerHeight;
+      progressBar.style.width = (maxScroll > 0 ? (scrollY / maxScroll) * 100 : 0) + "%";
+      header.classList.toggle("scrolled", scrollY > 12);
+      scrollTick = false;
+    }
+    window.addEventListener("scroll", () => { if (!scrollTick) { requestAnimationFrame(updateScrollEffects); scrollTick = true; } }, {passive:true});
+    updateScrollEffects();
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}}), {threshold:.12});
+      reveals.forEach((el,i)=>{el.style.transitionDelay=(i%3)*75+"ms";io.observe(el)});
+    } else reveals.forEach(el=>el.classList.add('show'));
+    // Decorative starfield only; no tracking or external API calls.
+    const canvas=document.getElementById('stars'),ctx=canvas.getContext('2d');let stars=[];
+    function resize(){const dpr=Math.min(window.devicePixelRatio||1,2);canvas.width=innerWidth*dpr;canvas.height=innerHeight*dpr;canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';ctx.setTransform(dpr,0,0,dpr,0,0);stars=Array.from({length:Math.min(140,Math.floor(innerWidth/8))},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.3+.2,a:Math.random()*.7+.15,s:Math.random()*.25+.05,p:Math.random()*Math.PI*2}));}
+    function draw(t){ctx.clearRect(0,0,innerWidth,innerHeight);for(const s of stars){const alpha=s.a*(.55+.45*Math.sin(t*.001*s.s+s.p));ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(${s.p%2<1?'105,205,255':'189,119,255'},${alpha})`;ctx.fill();s.y-=s.s*.12;if(s.y<0)s.y=innerHeight;}requestAnimationFrame(draw)}
+    resize();window.addEventListener('resize',resize);requestAnimationFrame(draw);
+  </script>
+</body>
+</html>
